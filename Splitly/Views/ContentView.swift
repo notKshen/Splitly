@@ -17,7 +17,7 @@ struct ContentView: View {
                 Tab("", systemImage: "house") { Home(expenses: $expenses)}
                 Tab("", systemImage: "person.2") { Groups()}
                 Tab() {}
-                Tab("", systemImage: "arrow.left.arrow.right") { Debts()}
+                Tab("", systemImage: "arrow.left.arrow.right") { Debts(expenses: $expenses)}
                 Tab("", systemImage: "person") { Profile()}
             }
             .tint(.white)

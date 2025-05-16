@@ -21,6 +21,11 @@ struct Home: View {
                 Text(expense.date, style: .date)
                     .font(.caption)
                     .foregroundStyle(.gray)
+                ForEach(expense.debts.sorted(by: {$0.key < $1.key}), id: \.key) { person, amount in
+                    Text("\(person) owes $\(amount, specifier: "%.2f")")
+                        .font(.caption)
+                        .foregroundStyle(.gray)
+                }
             }
         }
     }
