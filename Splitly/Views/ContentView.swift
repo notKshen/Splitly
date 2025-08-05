@@ -10,15 +10,17 @@ import SwiftUI
 struct ContentView: View {
     @State private var expenses: [Expense] = []
     @State private var showAddExpense = false
+    @State private var showSignInView: Bool = false
     
     var body: some View {
         ZStack {
             TabView() {
-                Tab("", systemImage: "house") { Home(expenses: $expenses)}
-                Tab("", systemImage: "person.2") { Groups()}
+                Tab("", systemImage: "house") { HomeView(expenses: $expenses)}
+                Tab("", systemImage: "person.2") { GroupsView()}
                 Tab() {}
-                Tab("", systemImage: "arrow.left.arrow.right") { Debts(expenses: $expenses)}
-                Tab("", systemImage: "person") { Profile()}
+                Tab("", systemImage: "arrow.left.arrow.right") { DebtsView(expenses: $expenses)}
+                Tab("", systemImage: "person") {
+                    ProfileView(showSignInView: $showSignInView)}
             }
             .tint(.white)
             
@@ -44,7 +46,7 @@ struct ContentView: View {
             }
         }
         .fullScreenCover(isPresented: $showAddExpense) {
-            AddExpense(expenses: $expenses)
+            AddExpenseView(expenses: $expenses)
         }
     }
 }

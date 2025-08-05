@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Home: View {
+struct HomeView: View {
     @Binding var expenses: [Expense]
     
     var body: some View {
@@ -28,17 +28,21 @@ struct Home: View {
                 }
             }
         }
+        .navigationBarTitle("Home")
+        .padding(.top)
     }
 }
 
 #Preview {
-    Home(expenses: .constant([
-        Expense(
-            title: "Dinner at Joe's",
-            amount: 42.75,
-            date: Date(),
-            paidBy: "Kobe",
-            splitBetween: ["Kobe", "Alex", "Sam"]
-        )
-    ]))
+    NavigationView {
+        HomeView(expenses: .constant([
+            Expense(
+                title: "Dinner at Joe's",
+                amount: 42.75,
+                date: Date(),
+                paidBy: "Kobe",
+                splitBetween: ["Kobe", "Alex", "Sam"]
+            )
+        ]))
+    }
 }

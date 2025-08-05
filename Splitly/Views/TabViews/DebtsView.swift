@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-struct Debts: View {
+struct DebtsView: View {
     @Binding var expenses: [Expense]
     
     var body: some View {
         let debts = calculateNetDebts(from: expenses)
-        
         List {
             if debts.isEmpty {
                 Text("No debts")
@@ -24,9 +23,13 @@ struct Debts: View {
                 }
             }
         }
+        .navigationBarTitle("Settings")
+        .padding(.top)
     }
 }
 
 #Preview {
-    Debts(expenses: .constant([]))
+    NavigationView {
+        DebtsView(expenses: .constant([]))
+    }
 }

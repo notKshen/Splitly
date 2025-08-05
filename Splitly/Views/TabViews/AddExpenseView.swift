@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddExpense: View {
+struct AddExpenseView: View {
     @Binding var expenses: [Expense]
     @Environment(\.dismiss) var dismiss
     
@@ -96,5 +96,5 @@ struct AddExpense: View {
 }
 
 #Preview {
-    AddExpense(expenses: .constant([]))
+    AddExpenseView(expenses: .constant([]))
 }
