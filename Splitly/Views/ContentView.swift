@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var expenses: [Expense] = []
     @State private var showAddExpense = false
-    @State private var showSignInView: Bool = false
+    @Binding var showSignInView: Bool
     
     var body: some View {
         ZStack {
@@ -52,5 +52,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView(showSignInView: .constant(false))
 }

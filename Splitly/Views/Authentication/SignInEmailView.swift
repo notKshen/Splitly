@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+import FirebaseAuth
 
 @MainActor
 final class SignInEmailViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var username: String = ""
     
     func signUp() async throws {
         guard !email.isEmpty, !password.isEmpty else {
@@ -27,6 +30,17 @@ final class SignInEmailViewModel: ObservableObject {
         }
         try await AuthManager.shared.signInUser(email: email, password: password)
     }
+    
+    func createUserDocument(userID: String, email: String, username: String) async throws {
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(userID)
+        
+        try await userRef.setData([
+            "email": email,
+            "username": username.lowercased(),
+            "createdAt": Timestamp()
+        ])
+    }
 }
 
 struct SignInEmailView: View {
@@ -39,7 +53,10 @@ struct SignInEmailView: View {
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-            
+            TextField("Username...", text: $viewModel.username)
+                .padding()
+                .background(Color.gray.opacity(0.4))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
             SecureField("Password...", text: $viewModel.password)
                 .padding()
                 .background(Color.gray.opacity(0.4))
@@ -49,6 +66,13 @@ struct SignInEmailView: View {
                 Task {
                     do {
                         try await viewModel.signUp()
+                        if let user = Auth.auth().currentUser {
+                            try await viewModel.createUserDocument(
+                                userID: user.uid,
+                                email: user.email ?? "",
+                                username: viewModel.username
+                            )
+                        }
                         showSignInView = false
                         return
                     } catch {

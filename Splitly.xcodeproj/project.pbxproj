@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B0F93EF2E31A95C00E572F1 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 8B0F93EE2E31A95C00E572F1 /* GoogleSignIn */; };
-		8B0F93F12E31A95C00E572F1 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B0F93F02E31A95C00E572F1 /* GoogleSignInSwift */; };
 		8B68A21F2DD7067F0084E3C2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8B68A21E2DD7067F0084E3C2 /* FirebaseAuth */; };
 		8B68A2212DD7067F0084E3C2 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B68A2202DD7067F0084E3C2 /* FirebaseCore */; };
 		8B68A2232DD7067F0084E3C2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B68A2222DD7067F0084E3C2 /* FirebaseFirestore */; };
@@ -19,7 +17,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		8B0F93F32E31AA0000E572F1 /* Exceptions for "Splitly" folder in "Splitly" target */ = {
+		8BA6E0352E4D488400B483F0 /* Exceptions for "Splitly" folder in "Splitly" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -29,10 +27,10 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		8B7443EF2DCAEEDD00161F02 /* Splitly */ = {
+		8B0F94942E4D39C400E572F1 /* Splitly */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				8B0F93F32E31AA0000E572F1 /* Exceptions for "Splitly" folder in "Splitly" target */,
+				8BA6E0352E4D488400B483F0 /* Exceptions for "Splitly" folder in "Splitly" target */,
 			);
 			path = Splitly;
 			sourceTree = "<group>";
@@ -44,9 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B0F93F12E31A95C00E572F1 /* GoogleSignInSwift in Frameworks */,
 				8B68A2232DD7067F0084E3C2 /* FirebaseFirestore in Frameworks */,
-				8B0F93EF2E31A95C00E572F1 /* GoogleSignIn in Frameworks */,
 				8B68A2212DD7067F0084E3C2 /* FirebaseCore in Frameworks */,
 				8B68A21F2DD7067F0084E3C2 /* FirebaseAuth in Frameworks */,
 			);
@@ -58,7 +54,7 @@
 		8B7443E42DCAEEDD00161F02 = {
 			isa = PBXGroup;
 			children = (
-				8B7443EF2DCAEEDD00161F02 /* Splitly */,
+				8B0F94942E4D39C400E572F1 /* Splitly */,
 				8B7443EE2DCAEEDD00161F02 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,15 +83,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				8B7443EF2DCAEEDD00161F02 /* Splitly */,
+				8B0F94942E4D39C400E572F1 /* Splitly */,
 			);
 			name = Splitly;
 			packageProductDependencies = (
 				8B68A21E2DD7067F0084E3C2 /* FirebaseAuth */,
 				8B68A2202DD7067F0084E3C2 /* FirebaseCore */,
 				8B68A2222DD7067F0084E3C2 /* FirebaseFirestore */,
-				8B0F93EE2E31A95C00E572F1 /* GoogleSignIn */,
-				8B0F93F02E31A95C00E572F1 /* GoogleSignInSwift */,
 			);
 			productName = Splitly;
 			productReference = 8B7443ED2DCAEEDD00161F02 /* Splitly.app */;
@@ -127,7 +121,6 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				8B68A21B2DD7067F0084E3C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				8B0F93ED2E31A95C00E572F1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8B7443EE2DCAEEDD00161F02 /* Products */;
@@ -359,14 +352,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8B0F93ED2E31A95C00E572F1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
 		8B68A21B2DD7067F0084E3C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -378,16 +363,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8B0F93EE2E31A95C00E572F1 /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8B0F93ED2E31A95C00E572F1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
-		8B0F93F02E31A95C00E572F1 /* GoogleSignInSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8B0F93ED2E31A95C00E572F1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignInSwift;
-		};
 		8B68A21E2DD7067F0084E3C2 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8B68A21B2DD7067F0084E3C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
