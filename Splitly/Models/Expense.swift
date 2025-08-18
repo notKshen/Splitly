@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Expense: Identifiable {
-    let id: UUID = UUID()
+struct Expense: Identifiable, Hashable, Decodable {
+    let id: String
+    let groupID: String
     var title: String
     var amount: Double
     var date: Date
@@ -27,6 +28,16 @@ struct Expense: Identifiable {
             }
         }
         return result
+    }
+    
+    init(id: String = UUID().uuidString, groupID: String, title: String, amount: Double, date: Date, paidBy: String, splitBetween: [String]) {
+        self.id = id
+        self.groupID = groupID
+        self.title = title
+        self.amount = amount
+        self.date = date
+        self.paidBy = paidBy
+        self.splitBetween = splitBetween
     }
 }
 

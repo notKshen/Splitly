@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChatGroup: Identifiable {
+struct ChatGroup: Identifiable, Hashable, Decodable {
     let id: String
     let name: String
     let memberIDs: [String]

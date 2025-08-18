@@ -18,13 +18,18 @@ final class GroupService {
     func createGroup(name: String, memberIDs: [String]) async throws {
         guard let currentUserID = Auth.auth().currentUser?.uid else { return }
         
+        var members = [currentUserID] + memberIDs
+        
+        members = Array(Set(members))
+        
         let groupRef = db.collection("groups").document()
         try await groupRef.setData([
             "name": name,
-            "members": [currentUserID] + memberIDs,
+            "members": members,
             "createdAt": Timestamp()
         ])
     }
+
     
     func fetchGroups() async throws -> [ChatGroup] {
         guard let currentUserId = Auth.auth().currentUser?.uid else { return [] }
